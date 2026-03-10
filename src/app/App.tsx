@@ -34,7 +34,7 @@ const faqs = [
   { q: "E os alunos com necessidades especiais?", a: "Todo aluno é bem vindo. Os métodos são personalizado de acordo com as necessidades de cada um." },
 ];
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/SEU_ID_AQUI";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoqjzje";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
