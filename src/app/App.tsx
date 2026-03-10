@@ -34,7 +34,7 @@ const faqs = [
   { q: "E os alunos com necessidades especiais?", a: "Todo aluno é bem vindo. Os métodos são personalizado de acordo com as necessidades de cada um." },
 ];
 
-const WHATSAPP_NUMBER = "5527996279505";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoqjzje";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,13 +47,29 @@ export default function App() {
     setMenuOpen(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Olá, Prof. João! Me chamo *${form.name}* (${form.email}).\n\n*Matéria:* ${form.subject || "Não informada"}\n\n*Mensagem:* ${form.message || "—"}`;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank");
-    setStatus("sent");
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject || "Não informada",
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -515,12 +531,19 @@ export default function App() {
                   />
                 </div>
 
+                {status === "error" && (
+                  <p style={{ color: "#dc2626", fontSize: "13px", backgroundColor: "#fee2e2", padding: "10px 14px", borderRadius: "10px", border: "1.5px solid #dc2626" }}>
+                    Erro ao enviar. Tente novamente ou fale pelo WhatsApp.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl text-sm transition-all hover:-translate-y-1 active:translate-y-0"
+                  disabled={status === "sending"}
+                  className="w-full py-4 rounded-xl text-sm transition-all hover:-translate-y-1 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
                   style={{ backgroundColor: "#1a1a1a", color: "#FDE68A", border: "2px solid #1a1a1a", boxShadow: "4px 4px 0 #F97316" }}
                 >
-                  Enviar pelo WhatsApp 💬
+                  {status === "sending" ? "Enviando..." : "Enviar mensagem 🚀"}
                 </button>
               </form>
             )}
