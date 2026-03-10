@@ -216,7 +216,7 @@ export default function App() {
             <div className="absolute inset-0 -translate-x-3 translate-y-3 rounded-3xl" style={{ backgroundColor: "#F97316" }} />
             <img src={IMG_STUDENT1} alt="Sobre" className="relative w-full rounded-3xl object-cover" style={{ height: "440px", border: "2px solid #FFFBF0", display: "block" }} />
             <div className="absolute -top-5 -right-5 w-20 h-20 flex flex-col items-center justify-center text-center" style={{ backgroundColor: "#FDE68A", border: "2px solid #FFFBF0", borderRadius: "50%", boxShadow: "3px 3px 0 #F97316" }}>
-              <span style={{ fontSize: "18px", lineHeight: 1, color: "#1a1a1a" }}>5+</span>
+              <span style={{ fontSize: "18px", lineHeight: 1, color: "#1a1a1a" }}>10+</span>
               <span style={{ fontSize: "9px", color: "#333", lineHeight: 1.2, textTransform: "uppercase" }}>anos de exp.</span>
             </div>
           </div>
