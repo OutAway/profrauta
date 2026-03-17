@@ -32,6 +32,7 @@ const faqs = [
   { q: "Como funciona o pagamento?", a: "PIX, dinheiro ou cartão. O pagamento pode ser realizado por aula ou em pacotes." },
   { q: "Vocês fazem plano de estudos?", a: "Sim, um cronograma personalizado é montado pra cada aluno com base nos seus objetivos." },
   { q: "E os alunos com necessidades especiais?", a: "Todo aluno é bem vindo. Os métodos são personalizado de acordo com as necessidades de cada um." },
+  { q: "Estou com dificuldades financeiras", a: "Ofereço preços sociais. Me manda uma mensagem :)" },
 ];
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoqjzje";
