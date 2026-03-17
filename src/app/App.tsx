@@ -492,6 +492,7 @@ export default function App() {
                 {[
                   { label: "Seu nome *", key: "name", type: "text", placeholder: "Como posso te chamar?" },
                   { label: "Seu e-mail *", key: "email", type: "email", placeholder: "seu@email.com" },
+                { label: "Seu Whatsapp *", key: "wpp", type: "wpp", placeholder: "27 - 99999999" },
                 ].map(({ label, key, type, placeholder }) => (
                   <div key={key}>
                     <label style={{ fontSize: "12px", color: "#666", textTransform: "uppercase", letterSpacing: "0.05em" }} className="block mb-1">{label}</label>
