@@ -40,7 +40,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkoqjzje";
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", wpp: "", subject: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const scrollTo = (id: string) => {
@@ -58,13 +58,14 @@ export default function App() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          whatsapp: form.wpp,
           subject: form.subject || "Não informada",
           message: form.message,
         }),
       });
       if (res.ok) {
         setStatus("sent");
-        setForm({ name: "", email: "", subject: "", message: "" });
+        setForm({ name: "", email: "", wpp: "", subject: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -493,7 +494,7 @@ export default function App() {
                 {[
                   { label: "Seu nome *", key: "name", type: "text", placeholder: "Como posso te chamar?" },
                   { label: "Seu e-mail *", key: "email", type: "email", placeholder: "seu@email.com" },
-                { label: "Seu Whatsapp *", key: "wpp", type: "wpp", placeholder: "Telefone" },
+                  { label: "Seu WhatsApp *", key: "wpp", type: "tel", placeholder: "(27) 99999-9999" },
                 ].map(({ label, key, type, placeholder }) => (
                   <div key={key}>
                     <label style={{ fontSize: "12px", color: "#666", textTransform: "uppercase", letterSpacing: "0.05em" }} className="block mb-1">{label}</label>
