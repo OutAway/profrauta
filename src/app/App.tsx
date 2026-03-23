@@ -370,9 +370,9 @@ export default function App() {
 
           <div className="grid sm:grid-cols-3 gap-6 items-stretch">
             {[
-              { name: "Avulso", price: "R$ 60", sub: "por hora", bg: "#FFFBF0", accent: "#6EE7B7", features: ["1 matéria", "Horário flexível", "Material de apoio", "Suporte por WhatsApp"], highlight: false },
-              { name: "Semanal", price: "R$ 150", sub: "3 aulas/semana", bg: "#F97316", accent: "#FDE68A", features: ["Até 3 matérias", "3 aulas semanais", "Plano personalizado", "Suporte ilimitado", "Simulados e exercícios para casa"], highlight: true },
-              { name: "Premium", price: "R$ 230", sub: "5 aulas/semana", bg: "#FFFBF0", accent: "#A78BFA", features: ["Matérias ilimitadas", "5 aulas semanais", "Plano completo", "Suporte ilimitado", "Simulados + exercícios para casa + apoio online"], highlight: false },
+              { name: "Avulso", price: "R$ 39.90", sub: "por hora", bg: "#FFFBF0", accent: "#6EE7B7", features: ["1 matéria", "Horário flexível", "Material de apoio", "Suporte por WhatsApp"], highlight: false },
+              { name: "Semanal", price: "R$ 109.90", sub: "3 aulas/semana", bg: "#F97316", accent: "#FDE68A", features: ["Até 3 matérias", "3 aulas semanais", "Plano personalizado", "Suporte ilimitado", "Simulados e exercícios para casa"], highlight: true },
+              { name: "Premium", price: "R$ 169.90", sub: "5 aulas/semana", bg: "#FFFBF0", accent: "#A78BFA", features: ["Matérias ilimitadas", "5 aulas semanais", "Plano completo", "Suporte ilimitado", "Simulados + exercícios para casa + apoio online"], highlight: false },
             ].map((plan) => (
               <div
                 key={plan.name}
